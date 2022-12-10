@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-decoration: underline;
+  color: rgb(77, 14, 35);
+}
+
+h3 {
+  font-size: 22px;
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+ul {
+  display: flex;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  padding: 5px 15px;
+}
+
+.listLastName {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.userNameFwrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+.userNameFwrapper .cardUserF {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: auto;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 3px 3px 9px 4px;
+}
+.userNameFwrapper .cardUserF .titleCardF {
+  padding: 5px;
+  align-self: center;
+  text-decoration: underline;
+}
+.userNameFwrapper .cardUserF a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+}
+.userNameFwrapper .cardUserF div {
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.userNameFwrapper .cardUserF img {
+  margin-top: auto;
+  object-fit: cover;
+  width: 50%;
+  height: 40%;
+}
+
+.ulAllUserName {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.liAllKeyUser {
+  color: rgb(65, 7, 65);
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
