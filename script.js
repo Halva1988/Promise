@@ -82,6 +82,41 @@ fetch('https://reqres.in/api/users?per_page=12')
             console.log(' '.repeat(4) + item + ': ' + element[item] + ',');
           }
         }
+
+        // ------- Информация о пользователе ------- //
+        const btn = document.createElement('button');
+        btn.classList = 'btnUser';
+        btn.textContent = 'info'
+        cardUserF.appendChild(btn);
+
+        btn.addEventListener('click', () => {
+
+          const container = document.createElement('div');
+          container.classList = 'containerUser';
+          document.body.appendChild(container);
+
+          const closeContainer = document.createElement('div');
+          closeContainer.classList = 'closeContainer';
+          container.appendChild(closeContainer);
+
+          closeContainer.addEventListener('click', (event) => {
+            container.remove();
+          })
+
+          fetch(`https://reqres.in/api/users/${element.id}`)
+            .then((response) => response.json())
+            .then((result) => {
+              const user = result.data;
+              const userWrapper = document.createElement('div');
+              userWrapper.classList = 'userWrapper';
+              container.appendChild(userWrapper);
+
+              console.log(user);
+            })
+            .catch((error) => {
+              console.error("Данные не получены", error);
+            })
+        })
       }
     });
 
@@ -149,7 +184,6 @@ fetch('https://reqres.in/api/users?per_page=12')
       ulAllKeysUser.appendChild(liAllKeyUser);
     }
   })
-
   .catch((error) => {
     console.log('Что-то пошло не так!!! ===> ', error);
   });
