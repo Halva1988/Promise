@@ -206,5 +206,13 @@ li {
     height: 0.2604166667vw;
   }
 }
+.error {
+  text-align: center;
+  margin-top: 20%;
+  font-size: 42px;
+  font-style: italic;
+  color: red;
+  text-shadow: 16px 16px 20px black;
+}
 
 /*# sourceMappingURL=style.css.map */

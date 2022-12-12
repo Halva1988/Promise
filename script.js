@@ -230,5 +230,9 @@ fetch('https://reqres.in/api/users?per_page=12')
     }
   })
   .catch((error) => {
+    const errorMessage = document.createElement('h1');
+    errorMessage.classList = 'error';
+    errorMessage.innerText = 'Что-то пошло не так!!!';
+    document.body.appendChild(errorMessage);
     console.log('Что-то пошло не так!!! ===> ', error);
   });
