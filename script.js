@@ -68,14 +68,14 @@ fetch('https://reqres.in/api/users?per_page=12')
             emailUserF.href = `mailto:${element[item]}`;
             emailUserF.innerHTML = item + ': ' + element[item];
             cardUserF.appendChild(emailUserF);
-          } 
-          
+          }
+
           else if (item === 'avatar') {
             imageUserF.src = element[item];
             imageUserF.alt = 'Avatar';
             cardUserF.appendChild(imageUserF);
-          } 
-          
+          }
+
           else {
             dataUserF.innerHTML = item + ': ' + element[item];
             cardUserF.appendChild(dataUserF);
@@ -99,7 +99,20 @@ fetch('https://reqres.in/api/users?per_page=12')
           closeContainer.classList = 'closeContainer';
           container.appendChild(closeContainer);
 
-          closeContainer.addEventListener('click', (event) => {
+          // ----- Отключаю кнопки если уже нажата ----- //
+          const btnAll = document.querySelectorAll('button');
+
+          for (let i = 0; i < btnAll.length; i++) {
+            btnAll[i].setAttribute('disabled', true)
+          }
+
+          closeContainer.addEventListener('click', () => {
+
+            // ----- Включаю кнопки если модальное окно закрыто ---- //
+
+            for (let i = 0; i < btnAll.length; i++) {
+              btnAll[i].removeAttribute('disabled', true)
+            }
             container.remove();
           })
 
@@ -107,14 +120,46 @@ fetch('https://reqres.in/api/users?per_page=12')
             .then((response) => response.json())
             .then((result) => {
               const user = result.data;
+
               const userWrapper = document.createElement('div');
               userWrapper.classList = 'userWrapper';
               container.appendChild(userWrapper);
 
+              const userImage = document.createElement('img');
+              userImage.classList = 'imageUser'
+              userImage.alt = 'Avatar';
+              userImage.src = user.avatar;
+              userWrapper.appendChild(userImage);
+
+              const infoWrapper = document.createElement('div');
+              infoWrapper.classList = 'infoWrapper';
+              userWrapper.appendChild(infoWrapper);
+
+              const nameUser = document.createElement('h1');
+              nameUser.classList = 'nameUser';
+              nameUser.innerHTML = user.first_name + ' ' + user.last_name;
+              infoWrapper.appendChild(nameUser);
+
+              const contactUser = document.createElement('div');
+              contactUser.classList = 'contactUser';
+              contactUser.innerHTML = 'Email: ';
+              infoWrapper.appendChild(contactUser);
+
+              const emailUser = document.createElement('a');
+              emailUser.classList = 'emailUser';
+              emailUser.href = `mailto:${user.email}`;
+              emailUser.innerHTML = `${user.email}`;
+              contactUser.appendChild(emailUser);
+
+              const idUser = document.createElement('div');
+              idUser.classList = 'idUser';
+              idUser.innerHTML = `Порядковый номер: ${user.id}`;
+              infoWrapper.appendChild(idUser);
+
               console.log(user);
             })
             .catch((error) => {
-              console.error("Данные не получены", error);
+              console.error("Опять что-то пошло не так!", error);
             })
         })
       }

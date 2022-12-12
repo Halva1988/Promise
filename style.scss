@@ -5,38 +5,37 @@
 }
 
 .containerUser {
-	position: absolute;
-    display: flex;
-    padding: 0px 15px 5px;
-	left: 10%;
-	top: 20%;
-	width: 80%;
-	height: 60%;
+	position: fixed;
+	display: flex;
+	padding: 0px calc(15 / 1440 * 100vw) calc(5 / 1440 * 100vw);
+	left: 20%;
+	top: 35%;
+	width: 60%;
+	max-width: 1500px;
+	height: calc(300 / 1440 * 100vw);
+	max-height: 600px;
 	opacity: 1;
 	z-index: 999;
-	background-color: rgb(217, 174, 174);
-    border-radius: 30px;
-    box-shadow: 3px 2px 15px 2px;
+	background-color: transparent;
+	border-radius: calc(30 / 1440 * 100vw);
+	box-shadow: 3px 2px 15px #aea19de8;
+	backdrop-filter: blur(2px);
 
 	.closeContainer {
 		position: absolute;
 		top: 1%;
 		right: 1%;
-		width: 30px;
-		height: 30px;
 		cursor: pointer;
-		border: 2px solid black;
-		border-radius: 50%;
 
 		&::before,
 		&::after {
 			content: "";
 			position: absolute;
-			top: 44%;
-			right: 11%;
-			width: 20px;
-			height: 3px;
-			background: black;
+			top: calc(10 / 1440 * 100vw);
+			right: calc(9 / 1440 * 100vw);
+			width: calc(15 / 1440 * 100vw);
+			height: calc(2 / 1440 * 100vw);
+			background: rgba(0, 0, 0, 0.707);
 		}
 
 		&::before {
@@ -48,12 +47,49 @@
 		}
 	}
 
-    .userWrapper {
-        margin: auto;
-        background-color: black;
-        width: 95%;
-        height: 85%;
-    }
+	.userWrapper {
+		margin: auto;
+		display: flex;
+		justify-content: space-between;
+		background-color: rgb(187, 180, 180);
+		border-radius: 10px;
+		width: 95%;
+		height: 85%;
+
+		.imageUser {
+			width: 35%;
+			height: 100%;
+		}
+
+		.infoWrapper {
+			width: 50%;
+			height: 100%;
+			padding: calc(10 / 1440 * 100vw) calc(15 / 1440 * 100vw);
+
+			.nameUser {
+				font-size: calc(32 / 1440 * 100vw);
+				text-align: center;
+			}
+
+			.contactUser {
+				display: flex;
+				font-size: calc(24 / 1440 * 100vw);
+				padding-top: calc(20 / 1440 * 100vw);
+
+				.emailUser {
+					position: relative;
+					left: calc(20 / 1440 * 100vw);
+					text-decoration: none;
+					color: rgb(15, 116, 116);
+				}
+			}
+
+			.idUser {
+				font-size: calc(24 / 1440 * 100vw);
+				padding-top: calc(20 / 1440 * 100vw);
+			}
+		}
+	}
 }
 
 h2 {
@@ -63,6 +99,10 @@ h2 {
 	padding-top: 20px;
 	text-decoration: underline;
 	color: rgb(77, 14, 35);
+
+	&.name_lastName {
+		margin-top: 80px;
+	}
 }
 
 h3 {
@@ -92,8 +132,9 @@ li {
 .userNameFwrapper {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
-	justify-content: space-around;
+	row-gap: 100px;
+	column-gap: 80px;
+	justify-content: center;
 
 	.cardUserF {
 		position: relative;
@@ -104,7 +145,9 @@ li {
 		border: 1px solid grey;
 		border-radius: 10px;
 		padding: 5px;
-		box-shadow: 3px 3px 9px 4px;
+		box-shadow: 3px 3px 9px 4px #b6b2b3;
+		-webkit-box-reflect: below 8px -webkit-gradient(linear, left top, left
+					bottom, from(transparent), color-stop(67%, transparent), to(rgba(250, 250, 250, 0.5)));
 
 		.titleCardF {
 			padding: 5px;
@@ -158,7 +201,40 @@ li {
 	font-weight: 600;
 }
 
+.ulAllKeysUser {
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 .liAllKeyUser {
 	color: rgb(65, 7, 65);
 	font-size: 30px;
+}
+
+@media (max-width: 1025px) {
+	.containerUser {
+		.closeContainer {
+			&::before,
+			&::after {
+				top: calc(10 / 1024 * 100vw);
+				right: calc(5 / 1024 * 100vw);
+				width: calc(15 / 1024 * 100vw);
+				height: calc(2 / 1024 * 100vw);
+			}
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.containerUser {
+		.closeContainer {
+			&::before,
+			&::after {
+				top: calc(10 / 768 * 100vw);
+				right: calc(2 / 768 * 100vw);
+				width: calc(13 / 768 * 100vw);
+				height: calc(2 / 768 * 100vw);
+			}
+		}
+	}
 }
