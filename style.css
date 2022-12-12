@@ -116,14 +116,14 @@ li {
   font-style: italic;
 }
 
-.userNameFwrapper {
+.userNameF_wrapper {
   display: flex;
   flex-wrap: wrap;
   row-gap: 100px;
   column-gap: 80px;
   justify-content: center;
 }
-.userNameFwrapper .cardUserF {
+.userNameF_wrapper .cardUserF {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -135,29 +135,29 @@ li {
   box-shadow: 3px 3px 9px 4px #b6b2b3;
   -webkit-box-reflect: below 8px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(67%, transparent), to(rgba(250, 250, 250, 0.5)));
 }
-.userNameFwrapper .cardUserF .titleCardF {
+.userNameF_wrapper .cardUserF .titleCardF {
   padding: 5px;
   align-self: center;
   text-decoration: underline;
 }
-.userNameFwrapper .cardUserF a {
+.userNameF_wrapper .cardUserF a {
   text-decoration: none;
   color: black;
   font-weight: bold;
   padding: 5px;
 }
-.userNameFwrapper .cardUserF div {
+.userNameF_wrapper .cardUserF div {
   padding: 5px;
   font-size: 18px;
   font-weight: bold;
 }
-.userNameFwrapper .cardUserF img {
+.userNameF_wrapper .cardUserF img {
   margin-top: auto;
   object-fit: cover;
   width: 50%;
   height: 40%;
 }
-.userNameFwrapper .cardUserF .btnUser {
+.userNameF_wrapper .cardUserF .btnUser {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -169,7 +169,7 @@ li {
   cursor: pointer;
   box-shadow: 2px 1px 9px 0px;
 }
-.userNameFwrapper .cardUserF .btnUser:active {
+.userNameF_wrapper .cardUserF .btnUser:active {
   box-shadow: inset 2px 1px 9px 0px;
 }
 

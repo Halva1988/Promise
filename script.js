@@ -21,11 +21,11 @@ fetch('https://reqres.in/api/users?per_page=12')
     ulLastName.classList = 'listLastName';
     document.body.appendChild(ulLastName);
 
-    usersData.map((element, index) => {
+    usersData.map((user, index) => {
       const li = document.createElement('li');
       ulLastName.appendChild(li);
-      li.innerText = element.last_name;
-      console.log('  ' + element.last_name);
+      li.innerText = user.last_name;
+      console.log('  ' + user.last_name);
     });
 
     // ---------------------- Данные всех пользователей с фамилией на букву 'F' ---------------------- //
@@ -38,26 +38,26 @@ fetch('https://reqres.in/api/users?per_page=12')
     titleTwo.classList = 'titleTwo';
     document.body.appendChild(titleTwo);
 
-    const userNameFwrapper = document.createElement('div');
-    userNameFwrapper.classList = 'userNameFwrapper';
-    document.body.appendChild(userNameFwrapper);
+    const userNameF_wrapper = document.createElement('div');
+    userNameF_wrapper.classList = 'userNameF_wrapper';
+    document.body.appendChild(userNameF_wrapper);
 
 
-    usersData.forEach((element) => {
-      if (element.last_name[0] === 'F') {
+    usersData.map((user) => {
+      if (user.last_name[0] === 'F') {
 
         const cardUserF = document.createElement('div');
         cardUserF.classList = 'cardUserF';
-        userNameFwrapper.appendChild(cardUserF)
+        userNameF_wrapper.appendChild(cardUserF)
 
         const titleCardF = document.createElement('h3');
         titleCardF.classList = 'titleCardF';
-        titleCardF.innerText = element.last_name;
+        titleCardF.innerText = user.last_name;
         cardUserF.appendChild(titleCardF)
 
-        console.log('  ' + element.last_name + ':');
+        console.log('  ' + user.last_name + ':');
 
-        for (const item in element) {
+        for (const item in user) {
           const dataUserF = document.createElement('div');
           const imageUserF = document.createElement('img');
           const emailUserF = document.createElement('a');
@@ -65,31 +65,34 @@ fetch('https://reqres.in/api/users?per_page=12')
           imageUserF.classList = 'imageUserF';
 
           if (item === 'email') {
-            emailUserF.href = `mailto:${element[item]}`;
-            emailUserF.innerHTML = item + ': ' + element[item];
+            emailUserF.href = `mailto:${user[item]}`;
+            emailUserF.innerHTML = item + ': ' + user[item];
             cardUserF.appendChild(emailUserF);
           }
 
           else if (item === 'avatar') {
-            imageUserF.src = element[item];
+            imageUserF.src = user[item];
             imageUserF.alt = 'Avatar';
             cardUserF.appendChild(imageUserF);
           }
 
           else {
-            dataUserF.innerHTML = item + ': ' + element[item];
+            dataUserF.innerHTML = item + ': ' + user[item];
             cardUserF.appendChild(dataUserF);
-            console.log(' '.repeat(4) + item + ': ' + element[item] + ',');
+            console.log(' '.repeat(4) + item + ': ' + user[item] + ',');
           }
         }
 
-        // ------- Информация о пользователе ------- //
+        // ------- Информация о конкретном пользователе ------- //
+
         const btn = document.createElement('button');
         btn.classList = 'btnUser';
         btn.textContent = 'info'
         cardUserF.appendChild(btn);
 
         btn.addEventListener('click', () => {
+
+          // ----- Создаю модальное окно ----- //
 
           const container = document.createElement('div');
           container.classList = 'containerUser';
@@ -100,23 +103,22 @@ fetch('https://reqres.in/api/users?per_page=12')
           container.appendChild(closeContainer);
 
           // ----- Отключаю кнопки если уже нажата ----- //
-          const btnAll = document.querySelectorAll('button');
 
-          for (let i = 0; i < btnAll.length; i++) {
-            btnAll[i].setAttribute('disabled', true)
-          }
+          const btnAll = document.querySelectorAll('button');
+          btnAll.forEach(btnOne => btnOne.setAttribute('disabled', true));
 
           closeContainer.addEventListener('click', () => {
 
-            // ----- Включаю кнопки если модальное окно закрыто ---- //
+            // ----- Включаю кнопки если модальное окно закрыто ----- //
 
-            for (let i = 0; i < btnAll.length; i++) {
-              btnAll[i].removeAttribute('disabled', true)
-            }
+            btnAll.forEach(btnOne => btnOne.removeAttribute('disabled', true));
+
+            // ----- Удаляю модальное окно ----- //
+
             container.remove();
           })
 
-          fetch(`https://reqres.in/api/users/${element.id}`)
+          fetch(`https://reqres.in/api/users/${user.id}`)
             .then((response) => response.json())
             .then((result) => {
               const user = result.data;
@@ -155,8 +157,6 @@ fetch('https://reqres.in/api/users?per_page=12')
               idUser.classList = 'idUser';
               idUser.innerHTML = `Порядковый номер: ${user.id}`;
               infoWrapper.appendChild(idUser);
-
-              console.log(user);
             })
             .catch((error) => {
               console.error("Опять что-то пошло не так!", error);
