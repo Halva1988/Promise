@@ -91,6 +91,7 @@ fetch('https://reqres.in/api/users?per_page=12')
         cardUserF.appendChild(btn);
 
         btn.addEventListener('click', () => {
+          document.documentElement.classList.toggle('isLocket');
 
           // ----- Создаю модальное окно ----- //
 
@@ -108,6 +109,8 @@ fetch('https://reqres.in/api/users?per_page=12')
           btnAll.forEach(btnOne => btnOne.setAttribute('disabled', true));
 
           closeContainer.addEventListener('click', () => {
+
+            document.documentElement.classList.toggle('isLocket');
 
             // ----- Включаю кнопки если модальное окно закрыто ----- //
 

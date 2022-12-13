@@ -4,21 +4,21 @@
 	padding: 0;
 }
 
+.isLocket {
+	overflow: hidden;
+}
+
 .containerUser {
 	position: fixed;
 	display: flex;
-	padding: 0px calc(15 / 1440 * 100vw) calc(5 / 1440 * 100vw);
-	left: 20%;
-	top: 35%;
-	width: 60%;
-	max-width: 1500px;
-	height: calc(300 / 1440 * 100vw);
-	max-height: 600px;
-	opacity: 1;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 	z-index: 999;
-	background-color: transparent;
-	border-radius: calc(30 / 1440 * 100vw);
-	box-shadow: 3px 2px 15px #aea19de8;
+	background-color: rgba(0, 0, 0, 0.205);
 	backdrop-filter: blur(2px);
 
 	.closeContainer {
@@ -33,9 +33,9 @@
 			position: absolute;
 			top: calc(10 / 1440 * 100vw);
 			right: calc(9 / 1440 * 100vw);
-			width: calc(15 / 1440 * 100vw);
-			height: calc(2 / 1440 * 100vw);
-			background: rgba(0, 0, 0, 0.707);
+			width: calc(22 / 1440 * 100vw);
+			height: calc(4 / 1440 * 100vw);
+			background: rgba(0, 0, 0);
 		}
 
 		&::before {
@@ -48,17 +48,18 @@
 	}
 
 	.userWrapper {
-		margin: auto;
 		display: flex;
 		justify-content: space-between;
+		padding-right: 15px;
 		background-color: rgb(187, 180, 180);
 		border-radius: 10px;
-		width: 95%;
-		height: 85%;
+		width: 50%;
+		height: calc(240 / 1440 * 100vw);
 
 		.imageUser {
 			width: 35%;
 			height: 100%;
+			border-radius: 10px 0 0 10px;
 		}
 
 		.infoWrapper {
@@ -211,6 +212,15 @@ li {
 	font-size: 30px;
 }
 
+.error {
+	text-align: center;
+	margin-top: 20%;
+	font-size: 42px;
+	font-style: italic;
+	color: red;
+	text-shadow: 16px 16px 20px black;
+}
+
 @media (max-width: 1025px) {
 	.containerUser {
 		.closeContainer {
@@ -218,8 +228,8 @@ li {
 			&::after {
 				top: calc(10 / 1024 * 100vw);
 				right: calc(5 / 1024 * 100vw);
-				width: calc(15 / 1024 * 100vw);
-				height: calc(2 / 1024 * 100vw);
+				width: calc(22 / 1024 * 100vw);
+				height: calc(4 / 1024 * 100vw);
 			}
 		}
 	}
@@ -232,18 +242,11 @@ li {
 			&::after {
 				top: calc(10 / 768 * 100vw);
 				right: calc(2 / 768 * 100vw);
-				width: calc(13 / 768 * 100vw);
-				height: calc(2 / 768 * 100vw);
+				width: calc(32 / 768 * 100vw);
+				height: calc(4 / 768 * 100vw);
 			}
 		}
 	}
 }
 
-.error {
-	text-align: center;
-	margin-top: 20%;
-	font-size: 42px;
-	font-style: italic;
-	color: red;
-	text-shadow: 16px 16px 20px black;
-}
+
