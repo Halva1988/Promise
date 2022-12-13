@@ -39,11 +39,9 @@ li {
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
-}
-
-.listLastName {
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .containerUser {
@@ -184,16 +182,15 @@ li {
   box-shadow: inset 2px 1px 9px 0px;
 }
 
-.ulAllUserName {
-  flex-wrap: wrap;
-  justify-content: space-around;
-  font-size: 18px;
-  font-weight: 600;
+.paragraphUserName {
+  max-width: 800px;
 }
 
-.ulAllKeysUser {
+.ulAllUserName {
   flex-wrap: wrap;
   justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .liKeyUser {
