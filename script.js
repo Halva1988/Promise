@@ -7,6 +7,10 @@ fetch('https://reqres.in/api/users?per_page=12')
     let arrayKeys = [];
     let arrayKeysFilter = [];
 
+    const wrapper = document.createElement('div');
+    wrapper.classList = 'wrapper';
+    document.body.appendChild(wrapper);
+
     // ---------------------- Фамилии всех пользователей ---------------------- //
 
     console.log('---------------- Фамилии всех пользователей ----------------');
@@ -16,10 +20,10 @@ fetch('https://reqres.in/api/users?per_page=12')
 
     titleOne.innerText = 'Фамилии всех пользователей';
     titleOne.classList = 'titleOne';
-    document.body.appendChild(titleOne);
+    wrapper.appendChild(titleOne);
 
     ulLastName.classList = 'listLastName';
-    document.body.appendChild(ulLastName);
+    wrapper.appendChild(ulLastName);
 
     usersData.map((user, index) => {
       const li = document.createElement('li');
@@ -36,11 +40,11 @@ fetch('https://reqres.in/api/users?per_page=12')
 
     titleTwo.innerText = 'Данные всех пользователей с фамилией на букву "F"';
     titleTwo.classList = 'titleTwo';
-    document.body.appendChild(titleTwo);
+    wrapper.appendChild(titleTwo);
 
     const userNameF_wrapper = document.createElement('div');
     userNameF_wrapper.classList = 'userNameF_wrapper';
-    document.body.appendChild(userNameF_wrapper);
+    wrapper.appendChild(userNameF_wrapper);
 
 
     usersData.map((user) => {
@@ -97,7 +101,7 @@ fetch('https://reqres.in/api/users?per_page=12')
 
           const container = document.createElement('div');
           container.classList = 'containerUser';
-          document.body.appendChild(container);
+          wrapper.appendChild(container);
 
           const closeContainer = document.createElement('div');
           closeContainer.classList = 'closeContainer';
@@ -173,16 +177,16 @@ fetch('https://reqres.in/api/users?per_page=12')
     const name_lastName = document.createElement('h2');
     name_lastName.innerText = 'Фамилии и Имена всех пользователей с помощью метода reduce'
     name_lastName.classList = 'name_lastName';
-    document.body.append(name_lastName);
+    wrapper.append(name_lastName);
 
     const paragraphUserName = document.createElement('h3');
     paragraphUserName.innerText = 'Наша база содержит данные следующих пользователей:'
     paragraphUserName.classList = 'paragraphUserName';
-    document.body.append(paragraphUserName);
+    wrapper.append(paragraphUserName);
 
     const ulAllUserName = document.createElement('ul');
     ulAllUserName.classList = 'ulAllUserName';
-    document.body.append(ulAllUserName);
+    wrapper.append(ulAllUserName);
 
     console.log('---------------- Фамилии и Имена всех пользователей с помощью метода reduce ----------------');
 
@@ -210,11 +214,11 @@ fetch('https://reqres.in/api/users?per_page=12')
     const keysUser = document.createElement('h2');
     keysUser.innerText = 'Все ключи в объекте пользователя';
     keysUser.classList = 'keysUser';
-    document.body.append(keysUser);
+    wrapper.append(keysUser);
 
     const ulAllKeysUser = document.createElement('ul');
     ulAllKeysUser.classList = 'ulAllKeysUser';
-    document.body.appendChild(ulAllKeysUser);
+    wrapper.appendChild(ulAllKeysUser);
 
     console.log('---------------- Все ключи в объекте пользователя ----------------');
 
@@ -236,6 +240,6 @@ fetch('https://reqres.in/api/users?per_page=12')
     const errorMessage = document.createElement('h1');
     errorMessage.classList = 'error';
     errorMessage.innerText = 'Что-то пошло не так!!!';
-    document.body.appendChild(errorMessage);
+    wrapper.appendChild(errorMessage);
     console.log('Что-то пошло не так!!! ===> ', error);
   });

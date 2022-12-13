@@ -8,6 +8,44 @@
   overflow: hidden;
 }
 
+h2 {
+  text-align: center;
+  font-size: 32px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-decoration: underline;
+  color: rgb(77, 14, 35);
+}
+h2.name_lastName {
+  margin-top: 80px;
+}
+
+h3 {
+  font-size: 22px;
+  padding-left: 10px;
+  text-decoration: underline;
+}
+
+ul {
+  display: flex;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  padding: 5px 15px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.listLastName {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .containerUser {
   position: fixed;
   display: flex;
@@ -79,34 +117,6 @@
 .containerUser .userWrapper .infoWrapper .idUser {
   font-size: 1.6666666667vw;
   padding-top: 1.3888888889vw;
-}
-
-h2 {
-  text-align: center;
-  font-size: 32px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  text-decoration: underline;
-  color: rgb(77, 14, 35);
-}
-h2.name_lastName {
-  margin-top: 80px;
-}
-
-h3 {
-  font-size: 22px;
-  padding-left: 10px;
-  text-decoration: underline;
-}
-
-ul {
-  display: flex;
-  text-decoration: none;
-}
-
-li {
-  list-style-type: none;
-  padding: 5px 15px;
 }
 
 .listLastName {
