@@ -66,7 +66,7 @@ fetch('https://reqres.in/api/users?per_page=12')
 
           if (item === 'email') {
             emailUserF.href = `mailto:${user[item]}`;
-            emailUserF.innerHTML = item + ': ' + user[item];
+            emailUserF.innerText = item.charAt(0).toUpperCase() + item.slice(1) + ': ' + user[item];
             cardUserF.appendChild(emailUserF);
           }
 
@@ -77,7 +77,7 @@ fetch('https://reqres.in/api/users?per_page=12')
           }
 
           else {
-            dataUserF.innerHTML = item + ': ' + user[item];
+            dataUserF.innerText = item.charAt(0).toUpperCase() + item.slice(1) + ': ' + user[item];
             cardUserF.appendChild(dataUserF);
             console.log(' '.repeat(4) + item + ': ' + user[item] + ',');
           }
@@ -139,23 +139,23 @@ fetch('https://reqres.in/api/users?per_page=12')
 
               const nameUser = document.createElement('h1');
               nameUser.classList = 'nameUser';
-              nameUser.innerHTML = user.first_name + ' ' + user.last_name;
+              nameUser.innerText = user.first_name + ' ' + user.last_name;
               infoWrapper.appendChild(nameUser);
 
               const contactUser = document.createElement('div');
               contactUser.classList = 'contactUser';
-              contactUser.innerHTML = 'Email: ';
+              contactUser.innerText = 'Email: ';
               infoWrapper.appendChild(contactUser);
 
               const emailUser = document.createElement('a');
               emailUser.classList = 'emailUser';
               emailUser.href = `mailto:${user.email}`;
-              emailUser.innerHTML = `${user.email}`;
+              emailUser.innerText = `${user.email}`;
               contactUser.appendChild(emailUser);
 
               const idUser = document.createElement('div');
               idUser.classList = 'idUser';
-              idUser.innerHTML = `Порядковый номер: ${user.id}`;
+              idUser.innerText = `Порядковый номер: ${user.id}`;
               infoWrapper.appendChild(idUser);
             })
             .catch((error) => {
@@ -221,12 +221,12 @@ fetch('https://reqres.in/api/users?per_page=12')
     console.log(arrayKeysFilter.join(', '));
 
     for (const item in arrayKeysFilter) {
-      const liAllKeyUser = document.createElement('li');
+      const liKeyUser = document.createElement('li');
 
-      liAllKeyUser.classList = 'liAllKeyUser';
-      liAllKeyUser.innerHTML = arrayKeysFilter[item];
+      liKeyUser.classList = 'liKeyUser';
+      liKeyUser.innerText = arrayKeysFilter[item].charAt(0).toUpperCase() + arrayKeysFilter[item].slice(1);
 
-      ulAllKeysUser.appendChild(liAllKeyUser);
+      ulAllKeysUser.appendChild(liKeyUser);
     }
   })
   .catch((error) => {
