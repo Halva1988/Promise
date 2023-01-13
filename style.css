@@ -131,9 +131,13 @@ li {
   margin: 8px;
   box-shadow: 0 0 5px 0;
   cursor: pointer;
+  transition: 0.4s linear;
 }
 .listLastName li:hover, .ulAllUserName li:hover, .ulAllKeysUser li:hover {
-  scale: 1.1;
+  scale: 1.2;
+  color: antiquewhite;
+  background: darkslategray;
+  transition: 0.2s linear;
 }
 
 .userNameF_wrapper {

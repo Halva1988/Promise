@@ -19,7 +19,6 @@ fetch('https://reqres.in/api/users?per_page=12')
       container.appendChild(closeContainer);
 
       closeContainer.addEventListener('click', () => {
-
         document.documentElement.classList.toggle('isLocket');
 
         // ----- Удаляю модальное окно ----- //
