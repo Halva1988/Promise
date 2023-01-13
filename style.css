@@ -125,6 +125,17 @@ li {
   font-style: italic;
 }
 
+.listLastName li, .ulAllUserName li, .ulAllKeysUser li {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  margin: 8px;
+  box-shadow: 0 0 5px 0;
+  cursor: pointer;
+}
+.listLastName li:hover, .ulAllUserName li:hover, .ulAllKeysUser li:hover {
+  scale: 1.1;
+}
+
 .userNameF_wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -143,6 +154,7 @@ li {
   padding: 5px;
   box-shadow: 3px 3px 9px 4px #b6b2b3;
   -webkit-box-reflect: below 8px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(67%, transparent), to(rgba(250, 250, 250, 0.5)));
+  transition: scale 0.2s ease;
 }
 .userNameF_wrapper .cardUserF .titleCardF {
   padding: 5px;
@@ -166,6 +178,9 @@ li {
   width: 50%;
   height: 40%;
 }
+.userNameF_wrapper .cardUserF:hover {
+  scale: 1.1;
+}
 .userNameF_wrapper .cardUserF .btnUser {
   width: 40px;
   height: 40px;
@@ -176,14 +191,15 @@ li {
   bottom: 10px;
   right: 10px;
   cursor: pointer;
-  box-shadow: 2px 1px 9px 0px;
+  box-shadow: 2px 1px 9px 0;
 }
 .userNameF_wrapper .cardUserF .btnUser:active {
-  box-shadow: inset 2px 1px 9px 0px;
+  box-shadow: inset 2px 1px 9px 0;
 }
 
 .paragraphUserName {
   max-width: 800px;
+  margin-bottom: 3px;
 }
 
 .ulAllUserName {
